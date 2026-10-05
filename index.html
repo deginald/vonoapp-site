@@ -215,6 +215,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-0.01em;}
 .feature-list details[open] summary svg:last-of-type{transform:rotate(180deg);}
 .feature-list .feature-desc{margin:0;padding:0 14px 14px 42px;color:var(--text-faint);font-size:13.5px;line-height:1.55;}
 
+.price-card .feature-group-label{font-size:12px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--text-faint);margin:4px 0 10px;}
 .price-card .excluded-label{font-size:12px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--text-faint);margin:20px 0 10px;}
 .excluded-list{list-style:none;margin-bottom:22px;}
 .excluded-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--text-faint);margin-bottom:10px;line-height:1.4;}
@@ -785,31 +786,129 @@ footer{border-top:1px solid var(--line);padding:48px 0 36px;}
         <div class="sub">Independent professionals</div>
         <div class="price-amount">$20<span>/month</span></div>
         <div class="price-note">7-day free trial</div>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="feature-group-label">Everything in Basic, plus:</div>
+        <ul class="feature-list">
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Everything in Basic</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Clients book you online</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Your booking link and QR code go live, and you're searchable on Find a Pro, both of which are completely inert on Basic.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Automatic booking reminders</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Message clients directly</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">In either direction, from the "Notify client" option on any appointment.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Earnings tracker</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Automatic client notifications</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Each one toggleable on its own: you get pinged when a client books or cancels, clients get a gentle nudge to rebook after about 90 days of no visits, and clients get a reminder before their upcoming appointment.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> My Clients CRM</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Payment links</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">On your booking page: Venmo, Cash App, Zelle, Apple Pay.</p>
+            </details>
+          </li>
+        </ul>
+        <div class="feature-group-label">Business tools</div>
+        <ul class="feature-list">
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Loyalty and rewards</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Loyalty</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Reward tiers based on completed appointments, resets once a client hits your top tier and you mark it redeemed.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Listed in the Find a Pro directory</li>
+</svg><span class="feature-name">Earnings</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Year-to-date and month-by-month totals pulled from completed appointments and logged walk-ins, with CSV download.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="feature-name">Walk-ins</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Log clients you took payment from outside the app.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="feature-name">My Clients</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">A searchable list of everyone you've served through Consult, plus mass messaging (shop announcements or promotions) to clients who've opted in.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="feature-name">Inventory</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Track product stock on hand.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="feature-name">Rent &amp; Commission (personal)</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Your own record of what you pay out for your chair, booth, or commission, whether that's to a Studio owner, an independent landlord, or a shop that's never used Vono.</p>
+            </details>
+          </li>
+        </ul>
+        <div class="excluded-label">Not included on Vono Pro — Studio required</div>
+        <ul class="excluded-list">
+          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(124,135,156,0.12)"/>
+<path d="M7 7L13 13" stroke="#7C879C" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M13 7L7 13" stroke="#7C879C" stroke-width="1.8" stroke-linecap="round"/>
+</svg> Shop (creating a shop, inviting a team, and tracking what your team owes you).</li>
         </ul>
         <a href="#" class="btn btn-gold" onclick="openModal();return false;">Start free trial</a>
       </div>
