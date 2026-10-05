@@ -221,6 +221,47 @@ h1,h2,h3{font-weight:600;letter-spacing:-0.01em;}
 .excluded-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--text-faint);margin-bottom:10px;line-height:1.4;}
 .excluded-list li svg{width:18px;height:18px;flex-shrink:0;margin-top:0;}
 
+/* Pricing comparison table (desktop) */
+.cmp-table-wrap{margin-top:8px;}
+.cmp-header-row{
+  display:grid;grid-template-columns:minmax(0,1fr) repeat(3, minmax(0,190px));
+  gap:14px;align-items:stretch;margin-bottom:30px;
+}
+.cmp-plan{
+  background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 18px;text-align:center;position:relative;display:flex;flex-direction:column;
+}
+.cmp-plan h3{font-size:17px;margin-bottom:10px;}
+.cmp-plan-price{font-size:28px;font-weight:700;margin-bottom:2px;}
+.cmp-plan-price span{font-size:13.5px;font-weight:500;color:var(--text-faint);}
+.cmp-plan-note{font-size:12.5px;color:var(--text-faint);margin-bottom:16px;}
+.cmp-plan .btn{width:100%;padding:11px 12px;font-size:14px;margin-top:auto;}
+.cmp-plan-featured{border-color:var(--gold);background:linear-gradient(180deg, rgba(212,175,106,0.09), var(--bg-panel) 55%);}
+.cmp-plan .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;}
+
+.cmp-group-label{
+  font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+  color:var(--gold-bright);margin:30px 0 4px;padding-left:2px;
+}
+.cmp-group-label:first-of-type{margin-top:0;}
+.cmp-group-note{font-size:12.5px;color:var(--text-faint);margin:0 0 10px;padding-left:2px;line-height:1.5;}
+
+.cmp-row{border-bottom:1px solid var(--line);}
+.cmp-row summary{
+  display:grid;grid-template-columns:minmax(0,1fr) repeat(3, minmax(0,190px));
+  gap:14px;align-items:center;padding:14px 2px;cursor:pointer;list-style:none;user-select:none;
+}
+.cmp-row summary::-webkit-details-marker{display:none;}
+.cmp-feature-name{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--text-dim);font-weight:500;}
+.cmp-feature-name svg{width:13px;height:13px;color:var(--text-faint);flex-shrink:0;transition:transform 0.2s ease;}
+.cmp-row details[open] .cmp-feature-name svg{transform:rotate(180deg);}
+.cmp-cell{display:flex;justify-content:center;align-items:center;}
+.cmp-cell svg{width:19px;height:19px;}
+.cmp-cell.cmp-dash{color:var(--text-faint);font-size:17px;line-height:1;}
+.cmp-desc{margin:0;padding:0 2px 18px;color:var(--text-faint);font-size:13.5px;line-height:1.55;max-width:600px;}
+
+.pricing-cards-mobile{display:none;}
+
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
 .how-step{position:relative;padding-left:0;}
 .how-num{
@@ -314,6 +355,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 36px;}
   .showcase-grid{grid-template-columns:1fr;gap:40px;}
   .pricing-grid{grid-template-columns:1fr;}
   .pricing-grid.pricing-grid-2{grid-template-columns:1fr;max-width:none;}
+  .cmp-table-wrap{display:none;}
+  .pricing-cards-mobile{display:block;}
   .how{grid-template-columns:1fr;gap:28px;}
   .community-inner{grid-template-columns:1fr;gap:28px;}
   .access{grid-template-columns:1fr;gap:32px;}
@@ -687,6 +730,437 @@ footer{border-top:1px solid var(--line);padding:48px 0 36px;}
 <path d="M12 3.5L14.7 9.1L21 10L16.5 14.2L17.6 20.5L12 17.5L6.4 20.5L7.5 14.2L3 10L9.3 9.1L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
 </svg> <strong>The first 150 professionals to sign up get 6 months of Vono free</strong> (card required at signup). Everyone after that gets a <strong>7-day free trial</strong> on Pro and Studio.
     </div>
+    <div class="cmp-table-wrap">
+    <div class="cmp-header-row">
+      <div class="cmp-header-spacer"></div>
+      <div class="cmp-plan">
+        <h3>Vono Basic</h3>
+        <div class="cmp-plan-price">$0</div>
+        <div class="cmp-plan-note">Free, no credit card required</div>
+        <a href="#" class="btn btn-ghost" onclick="openModal();return false;">Get started free</a>
+      </div>
+      <div class="cmp-plan cmp-plan-featured">
+        <div class="price-badge">Most popular</div>
+        <h3>Vono Pro</h3>
+        <div class="cmp-plan-price">$20<span>/mo</span></div>
+        <div class="cmp-plan-note">7-day free trial</div>
+        <a href="#" class="btn btn-gold" onclick="openModal();return false;">Start free trial</a>
+      </div>
+      <div class="cmp-plan">
+        <h3>Vono Studio</h3>
+        <div class="cmp-plan-price">$30<span>/mo</span></div>
+        <div class="cmp-plan-note">7-day free trial</div>
+        <a href="#" class="btn btn-ghost" onclick="openModal();return false;">Start free trial</a>
+      </div>
+    </div>
+      <div class="cmp-group-label">Booking &amp; scheduling</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Booking<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Set up your services, hours, VIP hours, and date overrides, and manage your calendar. Add appointments yourself for a walk-in, a phone booking, or a client whose phone's dead, including starting a brand-new client's Vono Passport on the spot if it's their first visit.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Clients book you online<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Your booking link and QR code go live, and you're searchable on Find a Pro, both of which are completely inert on Basic.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Clients</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Client lookup &amp; photo history<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Scan or look up a client's Vono Passport to see their past visit photos and notes, log a note about today's visit, and add new before/after photos once they've consented.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">My Clients<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">A searchable list of everyone you've served through Consult, plus mass messaging (shop announcements or promotions) to clients who've opted in.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Messaging &amp; notifications</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Message clients directly<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">In either direction, from the "Notify client" option on any appointment.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Automatic client notifications<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Each one toggleable on its own: you get pinged when a client books or cancels, clients get a gentle nudge to rebook after about 90 days of no visits, and clients get a reminder before their upcoming appointment.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Payments</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Payment links<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">On your booking page: Venmo, Cash App, Zelle, Apple Pay.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Training &amp; growth</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Consult<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">The same guided consultation tool students get.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Refresher<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">The same step-by-step technique walkthroughs students get.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Jobs Board<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Browse postings, or post that you're hiring.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Business tools</div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Loyalty<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Reward tiers based on completed appointments, resets once a client hits your top tier and you mark it redeemed.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Earnings<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Year-to-date and month-by-month totals pulled from completed appointments and logged walk-ins, with CSV download.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Walk-ins<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Log clients you took payment from outside the app.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Inventory<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Track product stock on hand.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Rent &amp; Commission (personal)<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Your own record of what you pay out for your chair, booth, or commission, whether that's to a Studio owner, an independent landlord, or a shop that's never used Vono.</p>
+        </details>
+      </div>
+      <div class="cmp-group-label">Shop &amp; team</div>
+      <p class="cmp-group-note">Studio only. Separate from the personal Rent &amp; Commission tool above — this tracks what your team owes you, not what you owe someone else.</p>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Create your own shop<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Set up a shop profile (name, address, city, state, phone) and get a shop code other pros can use to join you.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Build your team<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Invite other professionals by their personal booking code, and see pending and accepted invites.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Team roster<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">See your full team at a glance.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Track what your team owes you<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Set up flat rent or commission per team member, on a weekly, biweekly, or monthly schedule starting from a date you choose. Log each payment (Studio auto-calculates your cut on commission), see a running history, view year-by-year totals, and download or print the records.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Your team's clients stay private<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">Anyone who joins your shop keeps their own clients, bookings, and consults private — you can't see them, only your own.</p>
+        </details>
+      </div>
+      <div class="cmp-row">
+        <details>
+          <summary>
+            <span class="cmp-feature-name">Flexibility to leave<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell cmp-dash">–</span>
+            <span class="cmp-cell"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+          </summary>
+          <p class="cmp-desc">A staff member can leave a shop at any time.</p>
+        </details>
+      </div>
+
+    </div>
+
+    <div class="pricing-cards-mobile">
     <div class="pricing-grid">
       <div class="price-card">
         <h3>Vono Basic</h3>
@@ -989,6 +1463,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 36px;}
         <a href="#" class="btn btn-ghost" onclick="openModal();return false;">Start free trial</a>
         <div class="price-footnote">This team-wide tracker is separate from the personal Rent &amp; Commission tool under the Business tab, which is for a pro paying rent or commission to someone else, not for tracking a team.</div>
       </div>
+    </div>
     </div>
   </div>
 </section>
