@@ -195,6 +195,25 @@ h1,h2,h3{font-weight:600;letter-spacing:-0.01em;}
 .price-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--text-dim);margin-bottom:12px;}
 .price-list li svg{width:18px;height:18px;flex-shrink:0;margin-top:0;}
 .price-card .btn{width:100%;}
+.price-card .price-footnote{color:var(--text-faint);font-size:12.5px;text-align:center;margin-top:12px;line-height:1.4;}
+
+.feature-list{list-style:none;margin-bottom:22px;flex-grow:1;}
+.feature-list li{margin-bottom:8px;}
+.feature-list li:last-child{margin-bottom:0;}
+.feature-list details{
+  border:1px solid var(--line);border-radius:10px;background:var(--bg-panel-2);overflow:hidden;
+}
+.feature-list details[open]{border-color:var(--gold-dim);}
+.feature-list summary{
+  display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;
+  font-size:14.5px;color:var(--text-dim);list-style:none;user-select:none;
+}
+.feature-list summary::-webkit-details-marker{display:none;}
+.feature-list summary svg:first-of-type{width:18px;height:18px;flex-shrink:0;}
+.feature-list summary .feature-name{flex-grow:1;color:var(--text);font-weight:600;}
+.feature-list summary svg:last-of-type{width:14px;height:14px;flex-shrink:0;color:var(--text-faint);transition:transform 0.2s ease;}
+.feature-list details[open] summary svg:last-of-type{transform:rotate(180deg);}
+.feature-list .feature-desc{margin:0;padding:0 14px 14px 42px;color:var(--text-faint);font-size:13.5px;line-height:1.55;}
 
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
 .how-step{position:relative;padding-left:0;}
@@ -572,26 +591,66 @@ footer{border-top:1px solid var(--line);padding:48px 0 36px;}
         <h3>Vono Student Account</h3>
         <div class="sub">Students</div>
         <div class="price-amount">$0</div>
-        <div class="price-note">Always free, no trial needed</div>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="price-note">Free, no credit card required</div>
+        <ul class="feature-list">
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Graduation Pacer</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Pace</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">A real-time projection of your graduation date, calculated from the hours and services you log, your absences, holidays, and your actual schedule.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Services tracker</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Refresher</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Step-by-step guided walkthroughs for haircut, chemical, and safety techniques, to practice or brush up on anytime.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Attendance tracker</li>
-          <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg><span class="feature-name">Consult</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">A guided set of questions to practice working through before recommending a product or service to a client.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
 <path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Portfolio to showcase your work</li>
+</svg><span class="feature-name">Ledger</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Self-rate your own confidence, 1 to 10, on individual techniques, building a shareable skill portfolio you can send to an instructor or a future employer.</p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10" cy="10" r="9" fill="rgba(212,175,106,0.14)"/>
+<path d="M5.5 10.3L8.3 13L14.5 6.8" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="feature-name">Jobs Board</span><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></summary>
+              <p class="feature-desc">Browse postings from shops that are hiring, or post that you're looking, with your expected graduation date and a link to your portfolio.</p>
+            </details>
+          </li>
         </ul>
         <a href="#" class="btn btn-ghost" onclick="openModal();return false;">Get started free</a>
+        <div class="price-footnote">No new sign-up when you change your account to Vono Pro.</div>
       </div>
       <div class="price-card">
         <h3>Vono Passport</h3>
